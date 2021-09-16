@@ -42,7 +42,6 @@ func GenerateController(namespace, view string) string {
 
         return Controller.extend("%s.controller.%s", {
 			// Add code here
-		}
-	});
-});`, namespace, view)
+		});
+	});`, namespace, view)
 }
