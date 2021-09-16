@@ -3,6 +3,7 @@ package cmds
 import (
 	"fmt"
 	"github.com/AlecAivazis/survey/v2"
+	"github.com/apex/log"
 	"github.com/darmiel/sapui5-helper/pkg/gen"
 	"github.com/urfave/cli/v2"
 	"os"
@@ -114,15 +115,15 @@ var RmdNewView = &cli.Command{
 
 		// write to files
 		if err := os.WriteFile(path.Join(viewDir, viewName), []byte(viewContent), 0755); err != nil {
-			fmt.Println("WARN :: Cannot write view:", err)
+			log.WithError(err).Errorf("Cannot write view")
 			return err
 		}
 		if err := os.WriteFile(path.Join(ctlDir, ctlName), []byte(ctlContent), 0755); err != nil {
-			fmt.Println("WARN :: Cannot write controller:", err)
+			log.WithError(err).Error("Cannot write controller")
 			return err
 		}
 
-		fmt.Println("OK :: Written view and controller.")
+		log.Info("Written view and controller")
 		return nil
 	},
 }

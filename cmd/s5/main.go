@@ -1,12 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"github.com/apex/log"
+	cli2 "github.com/apex/log/handlers/cli"
 	"github.com/darmiel/sapui5-helper/internal/cmds"
 	"github.com/darmiel/sapui5-helper/pkg/s5"
 	"github.com/urfave/cli/v2"
 	"os"
 )
+
+func init() {
+	log.SetHandler(cli2.Default)
+}
 
 func main() {
 	if err := (&cli.App{
@@ -16,6 +21,7 @@ func main() {
 		Description: "Generate some boilerplate",
 		Commands: []*cli.Command{
 			cmds.RmdNewView,
+			cmds.CmdFormat,
 		},
 		Flags: []cli.Flag{
 			&cli.StringFlag{
@@ -28,7 +34,7 @@ func main() {
 			if ctx.String("project") == "" {
 				manifest, err := s5.ReadManifest()
 				if err != nil {
-					fmt.Println("WARN :: Cannot find manifest.json")
+					log.Warn("Cannot find manifest.json")
 					return nil
 				}
 				if err := ctx.Set("project", manifest.App.ID); err != nil {
