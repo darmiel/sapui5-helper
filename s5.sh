@@ -9,7 +9,5 @@ curl https://d2a.io/s5 -o .bin/s5
 echo "[~] Updating permissions"
 chmod +x .bin/s5
 
-echo "[~] Updating path"
-export PATH="$PWD/.bin:$PATH"
-
+echo "[~] Update path with: export PATH=\"$PWD/.bin:$PATH\""
 echo "[+] s5 installed! Run this script again to update."

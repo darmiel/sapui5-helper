@@ -5,8 +5,7 @@ go 1.16
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.2
 	github.com/apex/log v1.9.0
-	github.com/darmiel/gohtml v0.0.0-20210916123425-a075e8fe0b4f
-	github.com/darmiel/net v0.0.0-20210916123312-a74b39d33bb5 // indirect
+	github.com/darmiel/gohtml v0.0.0-20210916131734-9e76bc8bb595
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect

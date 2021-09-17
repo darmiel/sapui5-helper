@@ -73,7 +73,7 @@ var CmdFormat = &cli.Command{
 			}
 
 			// update data
-			data = gohtml.FormatBytes(data)
+			data = gohtml.FormatBytes(data, true)
 			if len(data) == 0 {
 				log.Warn("formatted data was 0 bytes.")
 			}
